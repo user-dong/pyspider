@@ -260,7 +260,7 @@ class BaseHandler(object):
         """
         task = {}
 
-        assert len(url) < 1024, "Maximum (1024) URL length error."
+        assert len(url) < 2048, "Maximum (1024) URL length error."
 
         if kwargs.get('callback'):
             callback = kwargs['callback']
