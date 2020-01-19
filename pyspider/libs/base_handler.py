@@ -196,6 +196,7 @@ class BaseHandler(object):
             result = self._run_task(task, response)
             if inspect.isgenerator(result):
                 for r in result:
+                    logger.info(r)
                     self._run_func(self.on_result, r, response, task)
             else:
                 self._run_func(self.on_result, result, response, task)

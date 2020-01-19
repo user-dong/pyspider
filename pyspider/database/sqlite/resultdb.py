@@ -28,7 +28,8 @@ class ResultDB(SQLiteMixin, SplitTableMixin, BaseResultDB, BaseDB):
         assert re.match(r'^\w+$', project) is not None
         tablename = self._tablename(project)
         self._execute('''CREATE TABLE IF NOT EXISTS `%s` (
-                taskid PRIMARY KEY,
+                id INTEGER  PRIMARY KEY AUTOINCREMENT
+                taskid ,
                 url,
                 result,
                 updatetime

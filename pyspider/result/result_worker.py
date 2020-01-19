@@ -29,12 +29,15 @@ class ResultWorker(object):
         if not result:
             return
         if 'taskid' in task and 'project' in task and 'url' in task:
-            logger.info('result %s:%s %s -> %.30r' % (
-                task['project'], task['taskid'], task['url'], result))
+            # logger.info('result %s:%s %s -> %.30r' % (
+            #     task['project'], task['taskid'], task['url'], result))
+            logger.info('result %s:%s %s -> %.60r' % (
+                task['project'], task['taskid'], task['url'][-20:], result))
             return self.resultdb.save(
                 project=task['project'],
                 taskid=task['taskid'],
-                url=task['url'],
+                # url=task['url'],
+                url= "",
                 result=result
             )
         else:
